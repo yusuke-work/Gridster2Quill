@@ -1,0 +1,68 @@
+<button mat-raised-button color="primary" (click)="addItem()" aria-label="icon button with a add icon">
+  <mat-icon>add</mat-icon>
+</button>
+<gridster #gridster [options]="options" class="gridster-contents" >
+  <gridster-item [item]="item" *ngFor="let item of dashboard; index as i">
+    <div class="draggable-handler">
+      (draggable area)
+    </div>
+
+    draggable and resizable
+    <div id="ql-toolbar" >
+      <quill-editor placeholder="Enter Text" >
+        <div quill-editor-toolbar>
+          <div fxLayout="row">
+            <div fxLayoutAlign="start start" fxFlex>
+              <span class="ql-formats" (click)="$event.stopPropagation()" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">
+                <button (click)="test($event)" type="button" class="ql-bold" (click)="$event.stopPropagation()" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()"></button>
+                <button type="button" class="ql-italic"></button>
+                <button type="button" class="ql-underline"></button>
+                <button type="button" class="ql-strike"></button>
+
+                <select class="ql-color" [title]="'Color'"></select>
+                <select class="ql-background" [title]="'BackgroundColor'"></select>
+                <button type="button" class="ql-clean"></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </quill-editor>
+    </div>
+
+
+
+
+    <textarea class="textarea" matInput placeholder="Enter your comment ..." ></textarea>
+
+    <div class="delete-button">
+      <button mat-fab color="warn" (click)="removeItem(i)" aria-label="icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </gridster-item>
+</gridster>
+
+
+<div>
+  <quill-editor placeholder="Enter Text">
+    <div quill-editor-toolbar>
+      <div fxLayout="row">
+        <div fxLayoutAlign="start start" fxFlex>
+          <span class="ql-formats">
+            <button (click)="test($event)" type="button" class="ql-bold"></button>
+            <button type="button" class="ql-italic"></button>
+            <button type="button" class="ql-underline"></button>
+            <button type="button" class="ql-strike"></button>
+            <!-- <select class="ql-size">
+              <option *ngFor="let font of fontSizeArr" [value]="font"></option>
+            </select> -->
+            <select class="ql-color" [title]="'Color'"></select>
+            <select class="ql-background" [title]="'BackgroundColor'"></select>
+            <!-- <app-color-picker (change)="onChange($event)"></app-color-picker> -->
+            <button type="button" class="ql-clean"></button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </quill-editor>
+</div>
